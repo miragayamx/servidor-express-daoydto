@@ -1,4 +1,6 @@
-import model from '../model/productos.js';
+import productosDao from '../model/productosDao.js';
+
+const model = new productosDao();
 
 export const getProductos = async () => {
 	return await model.getProductos();
