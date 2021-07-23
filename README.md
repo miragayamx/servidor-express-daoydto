@@ -1,11 +1,17 @@
-# MEJORAR LA ARQUITECTURA DE NUESTRA API
+# INCORPORANDO DAO Y DTO
 
 >> Consigna:
 
-Separar en capas el proyecto que venimos realizando, exponiendo la capa de ruteo, el controlador, la lógica de negocio con los casos de uso y la capa de persistencia.
+Sobre el proyecto del último desafío entregable:
 
-Crear una factory que permita elegir con qué sistema de almacenamiento voy a trabajar (MongoDB, MySQL, File, Memory, etc), tomando la opción de la línea de comandos.
+Modificar la capa de persistencia incorporando el concepto de DAO y DTO.
+Crear un DAO por cada tipo de persistencia que exista en el proyecto.
 
-Cada uno de estos casos de persistencia, deberán ser implementados usando el patrón singleton que impida crear nuevas instancias de estos mecanismos de acceso a los datos.
+➔ El DAO seleccionado (por un parámetro en línea de comandos como lo hicimos anteriormente)será devuelto por
+una Factory para que la capa de negocio opere con el.
 
-Comprobar que si llamo a la factory dos veces, con una misma opción elegida, devuelva la misma instancia.
+➔ Al menos deben existir dos DAOs (Memory ó File para operaciones de debug y DB para base de datos en producción). En el caso de las operaciones de los DAOs en Memory ó File incorporar el ID y la FyH al objeto persistido con DTO.
+
+➔ Los DAOs deben presentar la misma interface hacia la lógica de negocio de nuestro servidor.
+
+➔ Utilizar el patrón Repository para gestionar la información que maneja el canal de chat con Websockets, para almacenar y recuperar los mensajes del sistema de almacenamiento utilizado.
